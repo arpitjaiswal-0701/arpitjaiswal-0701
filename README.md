@@ -31,6 +31,13 @@ Built for my own desk, MIT-licensed, one user in production: me.
 <!-- activity:end -->
 
 <!-- releases:start -->
+### Latest tagged versions
+
+- [v1.0.0](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701/releases/tag/v1.0.0) · [arpitjaiswal-0701](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701) · 2026-09-11
+- [v1.0.0](https://github.com/arpitjaiswal-0701/vibe-clone/releases/tag/v1.0.0) · [vibe-clone](https://github.com/arpitjaiswal-0701/vibe-clone) · 2026-07-27
+- [v1.0.0](https://github.com/arpitjaiswal-0701/sales-plan-skill/releases/tag/v1.0.0) · [sales-plan-skill](https://github.com/arpitjaiswal-0701/sales-plan-skill) · 2026-07-27
+- [v1.0.0](https://github.com/arpitjaiswal-0701/inbox-zero-engine/releases/tag/v1.0.0) · [inbox-zero-engine](https://github.com/arpitjaiswal-0701/inbox-zero-engine) · 2026-07-27
+- [v1.0.0](https://github.com/arpitjaiswal-0701/attendee-harvester/releases/tag/v1.0.0) · [attendee-harvester](https://github.com/arpitjaiswal-0701/attendee-harvester) · 2026-07-27
 <!-- releases:end -->
 
 ### Why most of it stays private
