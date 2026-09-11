@@ -23,6 +23,12 @@ min_distinct_dates = 2   # block renders only when at least this many distinct r
 # README states it (rule R-NUM); otherwise leave it qualitative or empty.
 # Order is the display order. A private repo renders as a name without a link, tagged (private).
 [[tools]]
+repo = "autopsy"
+name = "Autopsy"
+what = "Cause-of-death report for any deal, dead or alive. Pulls the full record out of Dynamics 365 read-only, compiles a sourced intel document with the CRM link on every line, and proposes gated edits to the deal folder. Nothing is written until you type apply."
+proof = ""
+
+[[tools]]
 repo = "assistant-to-the-crm"
 name = "Dynamics sync"
 what = "Turns the meetings on your Outlook calendar into Dynamics 365 activity records. Shows every record before it writes; never invents what happened in the room."

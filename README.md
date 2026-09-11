@@ -19,6 +19,7 @@ Built for my own desk, one user in production: me. Public ones are MIT-licensed;
 <!-- tools:start -->
 | Tool | What it does | Proof |
 |---|---|---|
+| **Autopsy** *(private)* | Cause-of-death report for any deal, dead or alive. Pulls the full record out of Dynamics 365 read-only, compiles a sourced intel document with the CRM link on every line, and proposes gated edits to the deal folder. Nothing is written until you type apply. |  |
 | **Dynamics sync** *(private)* | Turns the meetings on your Outlook calendar into Dynamics 365 activity records. Shows every record before it writes; never invents what happened in the room. |  |
 | **Ghosthand** *(private)* | Drives weekly account-hygiene updates into a Power BI report with a Power Apps write-back panel and no API, through watched, human-gated browser actions. |  |
 | [**vibe-clone**](https://github.com/arpitjaiswal-0701/vibe-clone) | Turns a design reference into a new, visually verified artifact in that design language. |  |
