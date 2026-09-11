@@ -255,8 +255,6 @@ def audit(gh: GitHub, login: str, readme: str, cfg: dict | None, public_mode: bo
             owner_items.append("Website field is empty; the README's contact URL is a good value (Settings -> Public profile).")
         if user["socialAccounts"]["totalCount"] == 0:
             owner_items.append("No social account linked (Settings -> Public profile -> Social accounts).")
-        if not user.get("company"):
-            owner_items.append("Company field empty (optional; see DESIGN U3 before naming an employer).")
         no_og = [p["name"] for p in pins if not p["og_image"]]
         if no_og:
             owner_items.append(f"Pinned repos without a social preview image (repo Settings -> Social preview, 1280x640): {no_og}.")
