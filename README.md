@@ -33,6 +33,7 @@ Built for my own desk, MIT-licensed, one user in production: me.
 <!-- releases:start -->
 ### Latest tagged versions
 
+- [v0.1.0](https://github.com/arpitjaiswal-0701/dead-reels/releases/tag/v0.1.0) · [dead-reels](https://github.com/arpitjaiswal-0701/dead-reels) · 2026-09-11
 - [v1.0.0](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701/releases/tag/v1.0.0) · [arpitjaiswal-0701](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701) · 2026-09-11
 - [v1.0.0](https://github.com/arpitjaiswal-0701/vibe-clone/releases/tag/v1.0.0) · [vibe-clone](https://github.com/arpitjaiswal-0701/vibe-clone) · 2026-07-27
 - [v1.0.0](https://github.com/arpitjaiswal-0701/sales-plan-skill/releases/tag/v1.0.0) · [sales-plan-skill](https://github.com/arpitjaiswal-0701/sales-plan-skill) · 2026-07-27
