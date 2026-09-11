@@ -131,7 +131,7 @@ def render_tools(cfg: dict, gh: GitHub, owner: str) -> tuple[str, list[dict]]:
         if status == "public":
             cell = f"[**{tool['name']}**](https://github.com/{owner}/{tool['repo']})"
         else:
-            cell = f"**{tool['name']}**"
+            cell = f"**{tool['name']}** *(private)*"
             demoted.append({"row": index, "status": status})
         rows.append(f"| {cell} | {tool['what']} | {tool.get('proof', '')} |")
     return "\n".join(rows), demoted
@@ -206,7 +206,15 @@ def main() -> None:
     now = dt.datetime.now(dt.UTC).replace(microsecond=0)
     contact = render_contact(cfg)
     tools, demoted = render_tools(cfg, gh, owner)
-    activity, facts = render_activity(cfg, gh, owner, old_blocks.get("activity", ""), now)
+    # The activity block is owned by the Actions job token: contribution counts are
+    # viewer-relative, and an owner token sees private repos the public cannot. A local
+    # build keeps the bot's last rendering unless --activity is passed explicitly.
+    in_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+    if in_actions or "--activity" in sys.argv[1:]:
+        activity, facts = render_activity(cfg, gh, owner, old_blocks.get("activity", ""), now)
+    else:
+        activity = old_blocks.get("activity", "").strip("\n")
+        facts = {"kept": True, "as_of": now.date().isoformat()}
     releases, rel = render_releases(cfg, gh, owner)
 
     new = text
@@ -216,12 +224,16 @@ def main() -> None:
     if changed:
         README.write_text(new, encoding="utf-8", newline="\n")
 
-    message = f"activity: {facts['total']} on {facts['active_days']}d, {facts['repos']} repos - {facts['as_of']}"
+    if facts.get("kept"):
+        message = f"readme: blocks rebuilt - {facts['as_of']}"
+        activity_note = "activity kept (bot-owned; pass --activity to re-render locally)"
+    else:
+        message = f"activity: {facts['total']} on {facts['active_days']}d, {facts['repos']} repos - {facts['as_of']}"
+        activity_note = f"activity {facts['total']} on {facts['active_days']}d across {facts['repos']} repos"
     report = {"built_at": iso(now), "changed": changed, "commit_message": message,
               "activity": facts, "releases": rel, "demoted_rows": demoted}
     REPORT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(f"build_readme: {'changed' if changed else 'no change'}; "
-          f"activity {facts['total']} on {facts['active_days']}d across {facts['repos']} repos; "
+    print(f"build_readme: {'changed' if changed else 'no change'}; {activity_note}; "
           f"releases {'rendered' if rel['rendered'] else 'gated'} ({rel['count']} items, {rel['distinct_dates']} dates); "
           f"demoted rows {[d['row'] for d in demoted]}")
 

@@ -12,18 +12,19 @@ I sell enterprise software, and I build the tooling that takes the paperwork out
 - **You see every write before it lands.** Anything that touches a system of record shows the exact change and waits for a yes. A bad day for the model is a declined prompt, not a corrupted record.
 - **No invented facts.** A name, number or date appears only when the evidence does. Enforced in code, not in a prompt.
 
-### Tools I've published
+### Tools I've built
 
-Built for my own desk, MIT-licensed, one user in production: me.
+Built for my own desk, one user in production: me. Public ones are MIT-licensed; the ones that touch my employer's systems stay private.
 
 <!-- tools:start -->
 | Tool | What it does | Proof |
 |---|---|---|
-| [**Dead Reels Society**](https://github.com/arpitjaiswal-0701/dead-reels) | Turns the Instagram reels you hoard into a local, searchable knowledge base: transcripts, OCR, triage. | 100% local; installs nothing on its own |
-| [**Inbox Zero Engine**](https://github.com/arpitjaiswal-0701/inbox-zero-engine) | Rules-first Gmail cleanup. Native filters do the work; the model only drafts the rules. | 62,275 inbox threads to ~2,000 in one session (Jul 2026) |
+| **Dynamics sync** *(private)* | Turns the meetings on your Outlook calendar into Dynamics 365 activity records. Shows every record before it writes; never invents what happened in the room. |  |
+| **Ghosthand** *(private)* | Drives weekly account-hygiene updates into a Power BI report with a Power Apps write-back panel and no API, through watched, human-gated browser actions. |  |
+| [**vibe-clone**](https://github.com/arpitjaiswal-0701/vibe-clone) | Turns a design reference into a new, visually verified artifact in that design language. |  |
 | [**/sales plan**](https://github.com/arpitjaiswal-0701/sales-plan-skill) | One command runs six research agents and fills an account business-plan deck. | 6 agents, one populated deck |
 | [**attendee-harvester**](https://github.com/arpitjaiswal-0701/attendee-harvester) | Pulls a full event attendee list from Swapcard by intercepting its own API calls. Resumable, validated, Excel out. |  |
-| [**vibe-clone**](https://github.com/arpitjaiswal-0701/vibe-clone) | Turns a design reference into a new, visually verified artifact in that design language. |  |
+| [**Dead Reels Society**](https://github.com/arpitjaiswal-0701/dead-reels) | Turns the Instagram reels you hoard into a local, searchable knowledge base: transcripts, OCR, triage. | 100% local; installs nothing on its own |
 <!-- tools:end -->
 
 <!-- activity:start -->
@@ -41,9 +42,9 @@ Built for my own desk, MIT-licensed, one user in production: me.
 - [v1.0.0](https://github.com/arpitjaiswal-0701/attendee-harvester/releases/tag/v1.0.0) · [attendee-harvester](https://github.com/arpitjaiswal-0701/attendee-harvester) · 2026-07-27
 <!-- releases:end -->
 
-### Why most of it stays private
+### Also running, privately
 
-The systems I lean on most touch my employer's CRM and customer data, so their code stays private: a calendar-to-CRM activity sync that shows every record before it lands; a browser-driven write-back for a reporting app that has no API; zero-cost contact enrichment with SMTP-level verification and no invented addresses; and a local agent control plane with scheduled routines, a watchdog and backups. Happy to walk through any of them. LinkedIn is above.
+Two more sit behind the same rules: zero-cost contact enrichment with SMTP-level verification and no invented addresses, and a local agent control plane with scheduled routines, a watchdog and backups. Happy to walk through any of it. LinkedIn is above.
 
 ### How I work
 
