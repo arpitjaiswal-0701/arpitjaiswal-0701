@@ -1,0 +1,2 @@
+# LF everywhere: local builds on Windows and the Linux bot must never churn line endings.
+* text=auto eol=lf

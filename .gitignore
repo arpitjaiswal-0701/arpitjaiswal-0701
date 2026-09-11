@@ -1,0 +1,5 @@
+# build/audit side outputs (never committed; may carry owner-only findings locally)
+build-report.json
+audit-report.json
+audit-summary.md
+__pycache__/

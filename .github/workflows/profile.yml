@@ -1,0 +1,79 @@
+name: profile
+
+# Rebuilds the machine blocks of README.md daily, audits the public profile, and
+# commits only when something changed. Invariants: no pull_request triggers, no
+# secrets beyond the job token, nothing private written to any public surface.
+
+on:
+  schedule:
+    - cron: '17 3 * * *'   # daily, 03:17 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - profile.toml
+      - build_readme.py
+      - audit_profile.py
+      - .github/workflows/profile.yml
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Build README blocks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python build_readme.py
+
+      - name: Audit (public data only)
+        id: audit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          python audit_profile.py --public --markdown audit-summary.md
+          echo "criticals=$?" >> "$GITHUB_OUTPUT"
+          cat audit-summary.md >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Commit README if changed
+        run: |
+          if [ -z "$(git status --porcelain README.md)" ]; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "profile-bot"
+          git config user.email "profile-bot@users.noreply.github.com"
+          MSG=$(python -c "import json; print(json.load(open('build-report.json'))['commit_message'])")
+          git add README.md
+          git commit -m "$MSG"
+          git push origin HEAD:main || { git pull --rebase origin main && git push origin HEAD:main; }
+
+      - name: Upsert audit issue (public findings only)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CRITICALS: ${{ steps.audit.outputs.criticals }}
+        run: |
+          NUM=$(gh issue list --state open --json number,title --jq '.[] | select(.title=="Profile audit") | .number' | head -1)
+          if [ "${CRITICALS:-0}" -gt 0 ]; then
+            if [ -n "$NUM" ]; then
+              gh issue edit "$NUM" --body-file audit-summary.md
+            else
+              gh issue create --title "Profile audit" --body-file audit-summary.md
+            fi
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "Clear on $(date -u +%F)."
+          fi

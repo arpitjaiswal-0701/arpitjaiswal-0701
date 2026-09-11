@@ -1,0 +1,29 @@
+{
+  "t_mech": 82,
+  "calibrated_on": "2026-09-11",
+  "floor": 80,
+  "exemplars": {
+    "simonw": {
+      "score": 86,
+      "criticals": 0,
+      "pins": [
+        "datasette",
+        "sqlite-utils",
+        "llm",
+        "shot-scraper",
+        "files-to-prompt",
+        "s3-credentials"
+      ],
+      "readme_lines": 60
+    },
+    "DenverCoder1": {
+      "score": 82,
+      "criticals": 2,
+      "pins": [
+        "github-readme-streak-stats",
+        "readme-typing-svg"
+      ],
+      "readme_lines": 299
+    }
+  }
+}

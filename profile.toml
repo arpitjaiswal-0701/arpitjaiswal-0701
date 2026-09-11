@@ -1,0 +1,58 @@
+# Source of truth for the machine-rendered blocks in README.md.
+# Edit here, run `python build_readme.py`, commit. Prose (headline, principles,
+# the "why private" paragraph, "how I work") lives in README.md itself.
+
+[owner]
+login = "arpitjaiswal-0701"
+name = "Arpit Jaiswal"
+
+# Contact links rendered under the headline. A missing or empty value is omitted.
+# Never a placeholder.
+[links]
+linkedin = "https://www.linkedin.com/in/arpit-jaiswal-0701"
+# email = ""
+
+[activity]
+window_days = 90
+
+[releases]
+max_items = 6
+min_distinct_dates = 2   # block renders only when at least this many distinct release dates exist
+
+# Public tools table. `proof` may carry a number ONLY if the linked repo's own
+# README states it (rule R-NUM); otherwise leave it qualitative or empty.
+[[tools]]
+repo = "dead-reels"
+name = "Dead Reels Society"
+what = "Turns the Instagram reels you hoard into a local, searchable knowledge base: transcripts, OCR, triage."
+proof = "100% local; installs nothing on its own"
+
+[[tools]]
+repo = "inbox-zero-engine"
+name = "Inbox Zero Engine"
+what = "Rules-first Gmail cleanup. Native filters do the work; the model only drafts the rules."
+proof = "62,275 inbox threads to ~2,000 in one session (Jul 2026)"
+
+[[tools]]
+repo = "sales-plan-skill"
+name = "/sales plan"
+what = "One command runs six research agents and fills an account business-plan deck."
+proof = "6 agents, one populated deck"
+
+[[tools]]
+repo = "attendee-harvester"
+name = "attendee-harvester"
+what = "Pulls a full event attendee list from Swapcard by intercepting its own API calls. Resumable, validated, Excel out."
+proof = ""
+
+[[tools]]
+repo = "vibe-clone"
+name = "vibe-clone"
+what = "Turns a design reference into a new, visually verified artifact in that design language."
+proof = ""
+
+# Pin slate (GitHub has no API for pins; `audit_profile.py` reports drift, the
+# owner applies it in Profile -> Customize your pins).
+[pins]
+slate = ["dead-reels", "inbox-zero-engine", "sales-plan-skill", "attendee-harvester", "arpitjaiswal-0701"]
+bench = ["vibe-clone"]
