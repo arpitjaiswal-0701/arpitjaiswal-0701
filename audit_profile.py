@@ -265,8 +265,12 @@ def audit(gh: GitHub, login: str, readme: str, cfg: dict | None, public_mode: bo
             owner_items.append(f"Empty public stub repos (make private or archive): {stubs}.")
         if user["forks"]["totalCount"] > 0:
             owner_items.append(f"{user['forks']['totalCount']} public forks on the Repositories tab; see forks-audit.tsv for the zero-ahead list (deletion is permanent).")
-        if user["contributionsCollection"]["restrictedContributionsCount"] == 0:
-            owner_items.append("Private contribution counts appear to be hidden (Settings -> Public profile -> Contributions & activity).")
+        # An owner-scoped token can see everything, so restrictedContributionsCount is not a
+        # reliable sharing signal here. The daily build runs under the job token and renders the
+        # private-share clause only when sharing is on, so read that instead.
+        activity_block = re.search(r"<!-- activity:start -->(.*?)<!-- activity:end -->", readme, re.S)
+        if activity_block and activity_block.group(1).strip() and "in private repos" not in activity_block.group(1):
+            owner_items.append("The activity block carries no private-repo share: private contribution counts look hidden (Settings -> Public profile -> Contributions & activity).")
 
     return {"login": login, "audited_at": dt.datetime.now(dt.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "score": score, "criticals": criticals, "weighted": [{"item": l, "earned": round(e, 2), "weight": w} for l, e, w in weighted],
