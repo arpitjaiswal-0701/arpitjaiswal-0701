@@ -29,7 +29,7 @@ Built for my own desk, one user in production: me. Public ones are MIT-licensed;
 <!-- tools:end -->
 
 <!-- activity:start -->
-**Active on 26 of the last 90 days:** 165 commits, issues and reviews across 6 repositories (77% of them in private repos). *as of 2026-09-12*
+**Active on 25 of the last 90 days:** 163 commits, issues and reviews across 6 repositories (77% of them in private repos). *as of 2026-09-14*
 <!-- activity:end -->
 
 <!-- releases:start -->
