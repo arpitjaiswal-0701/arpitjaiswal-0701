@@ -124,7 +124,11 @@ def render_contact(cfg: dict) -> str:
 
 
 def render_tools(cfg: dict, gh: GitHub, owner: str) -> tuple[str, list[dict]]:
-    rows = ["| Tool | What it does | Proof |", "|---|---|---|"]
+    show_proof = bool((cfg.get("tools_table") or {}).get("show_proof", True))
+    if show_proof:
+        rows = ["| Tool | What it does | Proof |", "|---|---|---|"]
+    else:
+        rows = ["| Tool | What it does |", "|---|---|"]
     demoted: list[dict] = []
     for index, tool in enumerate(cfg.get("tools") or [], start=1):
         status = gh.repo_status(owner, tool["repo"])
@@ -133,7 +137,10 @@ def render_tools(cfg: dict, gh: GitHub, owner: str) -> tuple[str, list[dict]]:
         else:
             cell = f"**{tool['name']}** *(private)*"
             demoted.append({"row": index, "status": status})
-        rows.append(f"| {cell} | {tool['what']} | {tool.get('proof', '')} |")
+        if show_proof:
+            rows.append(f"| {cell} | {tool['what']} | {tool.get('proof', '')} |")
+        else:
+            rows.append(f"| {cell} | {tool['what']} |")
     return "\n".join(rows), demoted
 
 
@@ -156,7 +163,8 @@ def render_activity(cfg: dict, gh: GitHub, owner: str, old_block: str, today: dt
 
     sentence = (f"**Active on {active} of the last {days} days:** {total} commits, issues and reviews "
                 f"across {repos} {plural(repos, 'repository', 'repositories')}")
-    if restricted > 0 and total > 0:
+    show_share = bool((cfg.get("activity") or {}).get("show_private_share", True))
+    if show_share and restricted > 0 and total > 0:
         sentence += f" ({round(100 * restricted / total)}% of them in private repos)"
     sentence += "."
 

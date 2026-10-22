@@ -1,6 +1,6 @@
 # Source of truth for the machine-rendered blocks in README.md.
 # Edit here, run `python build_readme.py`, commit. Prose (headline, principles,
-# the "why private" paragraph, "how I work") lives in README.md itself.
+# the scope line under "Tools I've built") lives in README.md itself.
 
 [owner]
 login = "arpitjaiswal-0701"
@@ -14,31 +14,18 @@ linkedin = "https://www.linkedin.com/in/arpit-jaiswal-0701"
 
 [activity]
 window_days = 90
+show_private_share = false   # 2026-10-22: the private-share percentage quantified private work (R-NUM review)
 
 [releases]
 max_items = 6
 min_distinct_dates = 2   # block renders only when at least this many distinct release dates exist
 
-# Public tools table. `proof` may carry a number ONLY if the linked repo's own
-# README states it (rule R-NUM); otherwise leave it qualitative or empty.
-# Order is the display order. A private repo renders as a name without a link, tagged (private).
-[[tools]]
-repo = "autopsy"
-name = "Autopsy"
-what = "Cause-of-death report for any deal, dead or alive. Pulls the full record out of Dynamics 365 read-only, compiles a sourced intel document with the CRM link on every line, and proposes gated edits to the deal folder. Nothing is written until you type apply."
-proof = ""
-
-[[tools]]
-repo = "assistant-to-the-crm"
-name = "Dynamics sync"
-what = "Turns the meetings on your Outlook calendar into Dynamics 365 activity records. Shows every record before it writes; never invents what happened in the room."
-proof = ""
-
-[[tools]]
-repo = "account-app-updater"
-name = "Ghosthand"
-what = "Drives weekly account-hygiene updates into a Power BI report with a Power Apps write-back panel and no API, through watched, human-gated browser actions."
-proof = ""
+# Tools table. `proof` may carry a number ONLY if the linked repo's own README states it
+# (rule R-NUM); otherwise leave it qualitative or empty. Order is the display order:
+# public tools first (a visitor can open them), then private ones (named, never quantified).
+# A private or absent repo renders as a name without a link, tagged (private).
+[tools_table]
+show_proof = false   # 2026-10-22: the Proof column was empty in most rows
 
 [[tools]]
 repo = "vibe-clone"
@@ -55,7 +42,7 @@ proof = "6 agents, one populated deck"
 [[tools]]
 repo = "attendee-harvester"
 name = "attendee-harvester"
-what = "Pulls a full event attendee list from Swapcard by intercepting its own API calls. Resumable, validated, Excel out."
+what = "Pulls a full event attendee list from Swapcard by reading the page's own responses. Resumable, validated, Excel out."
 proof = ""
 
 [[tools]]
@@ -63,6 +50,36 @@ repo = "dead-reels"
 name = "Dead Reels Society"
 what = "Turns the Instagram reels you hoard into a local, searchable knowledge base: transcripts, OCR, triage."
 proof = "100% local; installs nothing on its own"
+
+[[tools]]
+repo = "ai-sales-kit"   # lives outside this account; renders as a private name
+name = "AI sales kit"
+what = "Claude Code skills for my sales desk: account research, prospecting messages and CRM updates, each write gated on a yes."
+proof = ""
+
+[[tools]]
+repo = "autopsy"
+name = "Autopsy"
+what = "Cause-of-death report for any deal, dead or alive. Pulls the full record out of Dynamics 365 read-only, compiles a sourced intel document with the CRM link on every line, and proposes gated edits to the deal folder. Nothing is written until you type apply."
+proof = ""
+
+[[tools]]
+repo = "assistant-to-the-crm"
+name = "Dynamics sync"
+what = "Turns the meetings on your Outlook calendar into Dynamics 365 activity records. Shows every record before it writes; never invents what happened in the room."
+proof = ""
+
+[[tools]]
+repo = "account-app-updater"
+name = "Ghosthand"
+what = "Drives weekly account-hygiene updates into a Power BI report through browser automation with a human approval step."
+proof = ""
+
+[[tools]]
+repo = "agent-control-plane"   # local only; renders as a private name
+name = "Agent control plane"
+what = "A local control plane for scheduled agent routines, with a watchdog and backups."
+proof = ""
 
 # Pin slate (GitHub has no API for pins; `audit_profile.py` reports drift, the
 # owner applies it in Profile -> Customize your pins).
