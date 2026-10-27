@@ -23,7 +23,7 @@ Built for my own desk. The public ones are MIT-licensed; the rest stay private.
 | Tool | What it does |
 |---|---|
 | [**vibe-clone**](https://github.com/arpitjaiswal-0701/vibe-clone) | Turns a design reference into a new, visually verified artifact in that design language. |
-| [**/sales plan**](https://github.com/arpitjaiswal-0701/sales-plan-skill) | One command runs six research agents and fills an account business-plan deck. |
+| **/sales plan** *(private)* | One command runs six research agents and fills an account business-plan deck. |
 | [**attendee-harvester**](https://github.com/arpitjaiswal-0701/attendee-harvester) | Pulls a full event attendee list from Swapcard by reading the page's own responses. Resumable, validated, Excel out. |
 | [**Dead Reels Society**](https://github.com/arpitjaiswal-0701/dead-reels) | Turns the Instagram reels you hoard into a local, searchable knowledge base: transcripts, OCR, triage. |
 | **AI sales kit** *(private)* | Claude Code skills for my sales desk: account research, prospecting messages and CRM updates, each write gated on a yes. |
@@ -34,7 +34,7 @@ Built for my own desk. The public ones are MIT-licensed; the rest stay private.
 <!-- tools:end -->
 
 <!-- activity:start -->
-**Active on 25 of the last 90 days:** 136 commits, issues and reviews across 2 repositories. *as of 2026-10-26*
+**Active on 24 of the last 90 days:** 135 commits, issues and reviews across 2 repositories. *as of 2026-10-27*
 <!-- activity:end -->
 
 <!-- releases:start -->
@@ -43,7 +43,6 @@ Built for my own desk. The public ones are MIT-licensed; the rest stay private.
 - [v0.1.0](https://github.com/arpitjaiswal-0701/dead-reels/releases/tag/v0.1.0) · [dead-reels](https://github.com/arpitjaiswal-0701/dead-reels) · 2026-09-11
 - [v1.0.0](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701/releases/tag/v1.0.0) · [arpitjaiswal-0701](https://github.com/arpitjaiswal-0701/arpitjaiswal-0701) · 2026-09-11
 - [v1.0.0](https://github.com/arpitjaiswal-0701/vibe-clone/releases/tag/v1.0.0) · [vibe-clone](https://github.com/arpitjaiswal-0701/vibe-clone) · 2026-07-27
-- [v1.0.0](https://github.com/arpitjaiswal-0701/sales-plan-skill/releases/tag/v1.0.0) · [sales-plan-skill](https://github.com/arpitjaiswal-0701/sales-plan-skill) · 2026-07-27
 - [v1.0.0](https://github.com/arpitjaiswal-0701/inbox-zero-engine/releases/tag/v1.0.0) · [inbox-zero-engine](https://github.com/arpitjaiswal-0701/inbox-zero-engine) · 2026-07-27
 - [v1.0.0](https://github.com/arpitjaiswal-0701/attendee-harvester/releases/tag/v1.0.0) · [attendee-harvester](https://github.com/arpitjaiswal-0701/attendee-harvester) · 2026-07-27
 <!-- releases:end -->
