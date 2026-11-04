@@ -34,7 +34,7 @@ Built for my own desk. The public ones are MIT-licensed; the rest stay private.
 <!-- tools:end -->
 
 <!-- activity:start -->
-**Active on 22 of the last 90 days:** 126 commits, issues and reviews across 2 repositories. *as of 2026-10-31*
+**Active on 21 of the last 90 days:** 125 commits, issues and reviews across 2 repositories. *as of 2026-11-04*
 <!-- activity:end -->
 
 <!-- releases:start -->
